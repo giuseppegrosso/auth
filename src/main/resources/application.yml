@@ -1,0 +1,12 @@
+# configurazione del server
+server:
+  port: 8092
+  servlet:
+    contextPath: /auth
+
+# -- token jwt
+application:
+  jwt:
+    secretKey: mySecretPasswordSecuredForJWTToken_123456789_token_generation!!
+    tokenPrefix: "Bearer "
+    tokenExpirationDaysAfter: 14
