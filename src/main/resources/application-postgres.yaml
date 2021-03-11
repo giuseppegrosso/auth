@@ -1,0 +1,19 @@
+## default connection pool
+spring:
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+## PostgreSQL
+    url: jdbc:postgresql://localhost:5432/auth
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  #drop n create table again, good for testing, comment this in production
+  jpa:
+    hibernate:
+      ddl-auto: create
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

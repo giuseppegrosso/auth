@@ -1,4 +1,12 @@
 # configurazione del server
+spring:
+  profiles:
+    #active: test
+    #active: sqlite
+    active: mysql
+    #active: postgres
+
+# configurazione del server
 server:
   port: 8092
   servlet:

@@ -2,12 +2,15 @@
 
 Applicazione spring boot che permette di registrare e di gestire jwt authentication 
 insieme ad un filtro di authorization per ogni richiesta effettuata.
+Mapping jpa con Model e dto e utilizzo di mapstruct per la conversione tra model 
+e dto e viceversa
 
 ## tecnology
 
 - Spring boot v. 2.4.3
 - spring jpa
 - lombok
+- mapstruct  
 - spring web
 - support sqlite
 - support postgres
@@ -15,6 +18,7 @@ insieme ad un filtro di authorization per ogni richiesta effettuata.
 
 ## librerie utilizzate
 ```
+	<dependencies>
 		<!--jpa -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -78,6 +82,50 @@ insieme ad un filtro di authorization per ogni richiesta effettuata.
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.25.2</version>
+		</dependency>
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- postgres -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- mapstruct -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+		<!-- lombok + mapstruct -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok-mapstruct-binding</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+
+
+	</dependencies>
+
 ```
 ## Database Supported
 
