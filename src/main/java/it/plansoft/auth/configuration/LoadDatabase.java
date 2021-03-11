@@ -1,7 +1,6 @@
 package it.plansoft.auth.configuration;
 
-import it.plansoft.auth.model.UserAccount;
-import it.plansoft.auth.repository.UserAccountRepository;
+import it.plansoft.auth.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,7 +18,7 @@ public class LoadDatabase {
 
     @Bean
     public CommandLineRunner LoadDatabaseTest(
-            UserAccountRepository uaccount,
+            UserRepository uaccount,
             PasswordEncoder passwordEncoder) {
         return new CommandLineRunner() {
 

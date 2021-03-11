@@ -1,14 +1,13 @@
 package it.plansoft.auth;
 
-import it.plansoft.auth.model.UserAccount;
-import it.plansoft.auth.repository.UserAccountRepository;
+import it.plansoft.auth.model.Account;
+import it.plansoft.auth.repository.AccountRepository;
+import it.plansoft.auth.repository.UserRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Optional;
 
 
 /**
@@ -18,14 +17,17 @@ public class RepositoryTest extends AbstractRepoTest {
 
 
     @Autowired
-    private UserAccountRepository repository;
+    private UserRepository repository;
+
+    @Autowired
+    private AccountRepository accountRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Test
     public void testStandAloneRepository() throws Exception {
-        Optional<UserAccount> user = this.repository.findBySso("giuseppe");
+        Optional<Account> user = this.accountRepository.findBySso("giuseppe");
         assertEquals(user.get().getUser().getNome(), "Giuseppe");
         assertEquals(user.get().getUser().getAzienda(), "Microsoft");
     }

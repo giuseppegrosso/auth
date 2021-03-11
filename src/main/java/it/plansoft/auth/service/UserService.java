@@ -8,7 +8,7 @@ import it.plansoft.auth.service.interfaces.BaseCrudDtoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class UserService extends BaseCrudDtoService<UserRepository, IUserMapper, UserDto, User, Long> {
 
     @Autowired

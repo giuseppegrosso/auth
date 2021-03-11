@@ -1,30 +1,34 @@
 package it.plansoft.auth.controller;
 
 
-import it.plansoft.auth.controller.interfaces.BaseCrudController;
-import it.plansoft.auth.model.UserAccount;
-import it.plansoft.auth.service.UserAccountService;
+import it.plansoft.auth.controller.interfaces.BaseCrudDtoController;
+import it.plansoft.auth.dto.UserDto;
+import it.plansoft.auth.mapper.IUserMapper;
+import it.plansoft.auth.model.User;
+import it.plansoft.auth.repository.UserRepository;
+import it.plansoft.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-//@RestController
-//@RequestMapping("/userAccount")
-public class UserAccountController extends BaseCrudController<UserAccountService, UserAccount, Long> {
+@RestController
+@RequestMapping("/userAccount")
+public class UserAccountController extends BaseCrudDtoController<UserService, UserRepository, IUserMapper, UserDto, User, Long> {
 
     @Autowired
-    public UserAccountController(UserAccountService service) {
+    public UserAccountController(UserService service) {
         super(service);
     }
 
 
     @PutMapping("/disable/{id}")
-    public UserAccount update(@RequestBody UserAccount model, @PathVariable Long id) {
+    public UserDto update(@RequestBody UserDto dto, @PathVariable Long id) {
 
-        return (UserAccount) service.getById(id).map(Item -> {
-            model.setId(id);
-            model.setExpired(true);
-            return service.save(model);
-        }).orElseThrow(() -> new RuntimeException("user non trovato"));
+        UserDto user = service.findById(id);
+        if (user == null) throw new RuntimeException("user non trovato");
+
+        dto.setId(id);
+        dto.setExpired(true);
+        return service.save(dto);
     }
 
 }

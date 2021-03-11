@@ -1,7 +1,6 @@
 package it.plansoft.auth.repository;/* ggrosso created on 11/03/2021 inside the package - it.plansoft.auth.repository */
 
 import it.plansoft.auth.model.Account;
-import it.plansoft.auth.model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

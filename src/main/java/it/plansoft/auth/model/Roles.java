@@ -27,4 +27,8 @@ public class Roles extends IDModel<Long> {
 //    @JsonIgnore
 //    private Set<User> users;
 
+    @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
+    private Set<User> users;
+
+
 }
