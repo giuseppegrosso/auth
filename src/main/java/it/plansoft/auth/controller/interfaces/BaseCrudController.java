@@ -1,7 +1,7 @@
 package it.plansoft.auth.controller.interfaces;
 
 import it.plansoft.auth.model.IDModel;
-import it.plansoft.auth.service.BaseCrudService;
+import it.plansoft.auth.service.interfaces.BaseCrudService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

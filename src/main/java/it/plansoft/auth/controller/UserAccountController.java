@@ -7,8 +7,8 @@ import it.plansoft.auth.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/userAccount")
+//@RestController
+//@RequestMapping("/userAccount")
 public class UserAccountController extends BaseCrudController<UserAccountService, UserAccount, Long> {
 
     @Autowired

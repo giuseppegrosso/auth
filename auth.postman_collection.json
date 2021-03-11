@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "94a5c690-1bc5-406a-a5b7-2f285089a872",
+		"name": "auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"giuseppe\",\r\n    \"password\":\"giuseppe\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{serverAuth}}/auth/login",
+					"host": [
+						"{{serverAuth}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnaXVzZXBwZSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJSRUFEIn0seyJhdXRob3JpdHkiOiJST0xFX1VTRVIifSx7ImF1dGhvcml0eSI6IldSSVRFIn1dLCJpYXQiOjE2MTU0NzUwMzQsImV4cCI6MTYxNjYyNjgwMH0.hWIHKgl6q58CQZKSj4F_5v8ZMi38aWtqmB0lsZCtQfY6HdCxBXqXK0GzhQMMuuoi",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"cognome\": \"Grosso\",\r\n        \"name\": \"Gabriele\",\r\n        \"email\": \"gabriele.ing.grosso@gmail.com\",\r\n        \"azienda\": \"Google\",\r\n        \"sso\": \"gabriele\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{serverAuth}}/auth/userAccount/",
+					"host": [
+						"{{serverAuth}}"
+					],
+					"path": [
+						"auth",
+						"userAccount",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userGetAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJnaXVzZXBwZSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJSRUFEIn0seyJhdXRob3JpdHkiOiJST0xFX1VTRVIifSx7ImF1dGhvcml0eSI6IldSSVRFIn1dLCJpYXQiOjE2MTI5NzUzMDAsImV4cCI6MTYxNDEyMTIwMH0.fKBN08Dpp5p_SoXJ-Bh4AuM1rmBJk_i0gor2iwD04PNwoUVOz0LJvtLLQTlq9bPS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{serverAuth}}/auth/userAccount/",
+					"host": [
+						"{{serverAuth}}"
+					],
+					"path": [
+						"auth",
+						"userAccount",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

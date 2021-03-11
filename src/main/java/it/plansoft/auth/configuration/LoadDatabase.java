@@ -28,12 +28,12 @@ public class LoadDatabase {
 
                 // caricamento utenti/account/ruoli
                 // ..
-                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Giuseppe",
-                        "giuseppe.ing.grosso@gmail.com", "Microsoft", "giuseppe", passwordEncoder.encode("giuseppe"), "ADMIN|READ|WRITE")));
-                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Lorenzo",
-                        "giuseppe.ing.grosso@gmail.com", "Google", "lorenzo", passwordEncoder.encode("lorenzo"), "USER|READ")));
-                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Daniele",
-                        "giuseppe.ing.grosso@gmail.com", "Linkedin", "daniele", passwordEncoder.encode("daniele"), "VISUALIZZATORE|READ")));
+//                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Giuseppe",
+//                        "giuseppe.ing.grosso@gmail.com", "Microsoft", "giuseppe", passwordEncoder.encode("giuseppe"), "ADMIN|READ|WRITE")));
+//                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Lorenzo",
+//                        "giuseppe.ing.grosso@gmail.com", "Google", "lorenzo", passwordEncoder.encode("lorenzo"), "USER|READ")));
+//                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Daniele",
+//                        "giuseppe.ing.grosso@gmail.com", "Linkedin", "daniele", passwordEncoder.encode("daniele"), "VISUALIZZATORE|READ")));
             }
         };
 

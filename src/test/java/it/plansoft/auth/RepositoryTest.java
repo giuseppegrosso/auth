@@ -26,14 +26,14 @@ public class RepositoryTest extends AbstractRepoTest {
     @Test
     public void testStandAloneRepository() throws Exception {
         Optional<UserAccount> user = this.repository.findBySso("giuseppe");
-        assertEquals(user.get().getName(), "Giuseppe");
-        assertEquals(user.get().getAzienda(), "Microsoft");
+        assertEquals(user.get().getUser().getNome(), "Giuseppe");
+        assertEquals(user.get().getUser().getAzienda(), "Microsoft");
     }
 
     @Override
     protected void loadDataBase() {
-        this.repository.save(new UserAccount("Grosso", "Giuseppe",
-                "giuseppe.ing.grosso@gmail.com", "Microsoft", "giuseppe", passwordEncoder.encode("giuseppe"), "ADMIN|READ|WRITE"));
-
+//        this.repository.save(new UserAccount("Grosso", "Giuseppe",
+//                "giuseppe.ing.grosso@gmail.com", "Microsoft", "giuseppe", passwordEncoder.encode("giuseppe"), "ADMIN|READ|WRITE"));
+//
     }
 }

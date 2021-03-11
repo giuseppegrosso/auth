@@ -1,7 +1,7 @@
 package it.plansoft.auth.controller.interfaces;/* ggrosso created on 03/02/2021 inside the package - it.plansoft.rubrica.controller */
 
 import it.plansoft.auth.model.IDModel;
-import it.plansoft.auth.service.BaseCrudService;
+import it.plansoft.auth.service.interfaces.BaseCrudService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 

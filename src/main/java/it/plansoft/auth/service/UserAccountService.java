@@ -2,6 +2,7 @@ package it.plansoft.auth.service;
 
 import it.plansoft.auth.model.UserAccount;
 import it.plansoft.auth.repository.UserAccountRepository;
+import it.plansoft.auth.service.interfaces.BaseCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

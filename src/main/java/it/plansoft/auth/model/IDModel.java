@@ -9,7 +9,7 @@ import java.util.Date;
  * classe di base per i modelli di dati.
  */
 @MappedSuperclass
-public class IDModel<ID> {
+public class IDModel<ID> extends BaseId<ID> {
     @Id
     @GeneratedValue
     protected ID id;

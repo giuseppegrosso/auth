@@ -2,6 +2,7 @@ package it.plansoft.auth.repository;
 
 import it.plansoft.auth.model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
  * @author Giuseppe Grosso
  *
  */
+//@Repository
 public interface UserAccountRepository extends JpaRepository<UserAccount, Long>{
 	Optional<UserAccount> findByName(String name);
 	Optional<UserAccount> findBySso(String sso);

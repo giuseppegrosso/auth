@@ -1,6 +1,6 @@
 package it.plansoft.auth.controller.interfaces;/* ggrosso created on 03/02/2021 inside the package - it.plansoft.rubrica.controller */
 
-import it.plansoft.auth.service.BaseCrudService;
+import it.plansoft.auth.service.interfaces.BaseCrudService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
