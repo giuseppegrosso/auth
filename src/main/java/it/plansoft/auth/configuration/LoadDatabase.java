@@ -1,5 +1,8 @@
 package it.plansoft.auth.configuration;
 
+import it.plansoft.auth.model.Account;
+import it.plansoft.auth.model.User;
+import it.plansoft.auth.repository.AccountRepository;
 import it.plansoft.auth.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +21,8 @@ public class LoadDatabase {
 
     @Bean
     public CommandLineRunner LoadDatabaseTest(
-            UserRepository uaccount,
+            UserRepository userRepository,
+            AccountRepository accountRepository,
             PasswordEncoder passwordEncoder) {
         return new CommandLineRunner() {
 
@@ -27,12 +31,18 @@ public class LoadDatabase {
 
                 // caricamento utenti/account/ruoli
                 // ..
-//                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Giuseppe",
-//                        "giuseppe.ing.grosso@gmail.com", "Microsoft", "giuseppe", passwordEncoder.encode("giuseppe"), "ADMIN|READ|WRITE")));
-//                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Lorenzo",
-//                        "giuseppe.ing.grosso@gmail.com", "Google", "lorenzo", passwordEncoder.encode("lorenzo"), "USER|READ")));
-//                log.info("insert userAccount {} ", uaccount.save(new UserAccount("Grosso", "Daniele",
-//                        "giuseppe.ing.grosso@gmail.com", "Linkedin", "daniele", passwordEncoder.encode("daniele"), "VISUALIZZATORE|READ")));
+                if (accountRepository.findBySso("giuseppe") == null) {
+                    User user = userRepository.save(User.builder().cognome("Grosso").nome("Giuseppe")
+                            .email("giuseppe.ing.grosso@gmail.com").azienda("Microsoft")
+                            .enabled(true)
+                            .expired(false)
+                            .locked(false)
+                            .build());
+
+                    accountRepository.save(Account.builder().password(passwordEncoder.encode("giuseppe"))
+                            .sso("giuseppe").user(user).build()
+                    );
+                }
             }
         };
 

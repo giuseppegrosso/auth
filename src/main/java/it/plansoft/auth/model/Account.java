@@ -21,8 +21,9 @@ public class Account extends IDModel<Long> {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(mappedBy = "account")
-    @JsonIgnore
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
 }

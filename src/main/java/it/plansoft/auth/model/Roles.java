@@ -19,15 +19,7 @@ public class Roles extends IDModel<Long> {
     @Column(name = "ruolo")
     private String ruolo;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "user_roles",
-//            joinColumns = @JoinColumn(name = "roles_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
-//    @JsonIgnore
-//    private Set<User> users;
-
-    @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<User> users;
 
 

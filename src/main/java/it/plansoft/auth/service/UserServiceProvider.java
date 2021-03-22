@@ -24,17 +24,13 @@ public class UserServiceProvider implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Account> opAccount = aRepo.findBySso(username);
-        Optional<User> opUser = uRepo.findById(opAccount.get().getUser().getId());
 
+        if (opAccount == null || opAccount.get() == null)
+            throw new UsernameNotFoundException(MessageFormat.format("User with name {0} not found", username));
 
-//        if (opAccount == null || opAccount.get() == null)
-//            throw new UsernameNotFoundException(MessageFormat.format("User with name {0} not found", username));
+        User opUser = opAccount.get().getUser();
 
-//        UserAccount userAccount = new UserAccount();
-//        userAccount.setAccount(opAccount.get());
-//        userAccount.setUser(opUser.get());
-
-        return opUser.orElseThrow(() -> new UsernameNotFoundException(MessageFormat.format("User with name {0} not found", username)));
+        return opUser;
     }
 
 }

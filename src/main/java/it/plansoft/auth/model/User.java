@@ -1,5 +1,6 @@
 package it.plansoft.auth.model;/* ggrosso created on 11/03/2021 inside the package - it.plansoft.auth.model */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.plansoft.auth.security.ApplicationUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,11 +34,12 @@ public class User extends IDModel<Long> implements UserDetails {
     @Column(name = "company")
     private String azienda;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id")
+    @OneToOne(mappedBy = "user")
+    @JsonIgnore
     private Account account;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
